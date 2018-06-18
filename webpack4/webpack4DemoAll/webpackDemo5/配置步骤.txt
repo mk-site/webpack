@@ -1,0 +1,17 @@
+步骤1：配置压缩css
+	安装：optimize-css-assets-webpack-plugin
+	1.此插件默认支持 css-nano，  压缩、去除写法不好的代码，浏览器支持更好的代码
+步骤2：配置stylus
+	安装：stylus-loader stylus 
+	更改App.vue文件的类型及样式
+步骤2：配置postcss,配置兼容性
+	安装：postcss-loader postcss-nested postcss-cssnext
+	plugins: {
+		'postcss-nested': {}, //支持嵌套 cssnext的嵌套
+		'postcss-cssnext': {}, //postcss的编译
+		'cssnano': {} //压缩、去除写法不好的代码，浏览器支持更好的代码
+	}
+步骤3：配置压缩js，去除console、注释、多核等
+    安装：uglifyjs-webpack-plugin
+步骤4：更换线上地址 (46环境/回归环境/准生产/生产)
+		

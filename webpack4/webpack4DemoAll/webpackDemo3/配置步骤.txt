@@ -1,0 +1,21 @@
+步骤一：配置dev环境
+	1. 创建build/webpack.base.config.js文件  把处理js部分放到此处
+	2. 创建webpack.dev.config.js文件
+		1. resolve 和 config 注意文件目录
+		2. entry目录
+		3. 去掉clean插件
+		4. 开发环境不配置sourcemap
+		5. 配置是否压缩css (config/index.js + css插件配置)
+步骤二：配置prod环境
+	1. 创建webpack.config.js
+	2. resolve 和 config 注意文件目录
+	3. clean-webpack-plugin需要
+	4. 配置是否压缩css
+	5. 配置是否需要添加sourceMap
+步骤三：生产上为js和css添加hash
+	output: {
+		path: resolve('dist'),
+		filename: 'js/[name].[chunkHash:5].js'
+	}
+	new ExtractTextPlugin("css/[name].[hash:5].css")
+		

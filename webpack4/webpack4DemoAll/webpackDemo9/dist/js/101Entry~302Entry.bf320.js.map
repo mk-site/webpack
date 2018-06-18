@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///./src/config/index.js"],"names":["init"],"mappings":"qJAGCA,KADc","file":"./js/101Entry~302Entry.bf320.js","sourcesContent":["\r\n\r\nexport default {\r\n\tinit(){\r\n\t\tconsole.log('init')\r\n\t}\r\n}"],"sourceRoot":""}

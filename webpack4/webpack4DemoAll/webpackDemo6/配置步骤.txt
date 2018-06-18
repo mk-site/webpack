@@ -1,0 +1,12 @@
+步骤1：拆分公共框架文件
+	1、创建文件:build/webpack.dll.config.js，需要添加压缩js文件
+	2、package.json文件创建命令："dll": "webpack --progress --config build/webpack.dll.config.js",
+步骤2：在压缩包里面使用：
+	1. 复制vendor文件夹的文件到dist下，且忽略其他文件
+	2. 将文件引入到html内
+	3. 使用
+		new webpack.DllReferencePlugin({
+			context: resolve('./'),
+			manifest: manifest,
+			name: manifest.name
+		}),

@@ -1,0 +1,16 @@
+步骤1：添加路由，新增多个页面
+步骤2：
+	1. webpack.dll.config.js 打包用-p 或者js压缩工具
+	2. 注意dll打包出来的json文件路径要对，主要是让webpack.config.js文件使用
+	
+步骤3：使用了babel，需要安装动态引入插件npm install --save-dev babel-plugin-syntax-dynamic-import
+	地址 => https://router.vuejs.org/zh/guide/advanced/lazy-loading.html#把组件按组分块
+		
+步骤4：配置异步加载组件
+	const Test  = ()=>import(/* webpackChunkName: 'test' */ '../views/Test.vue') 
+步骤5：使用
+	output: {
+		path: resolve('dist'),
+		filename: './js/[name].[chunkHash:5].js',
+		chunkFilename:'./js/[name].[id].[chunkHash:5].js'
+	}

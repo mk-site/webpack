@@ -1,0 +1,57 @@
+注意：步骤1到4都不配置css
+步骤一：
+	安装插件：vue webpack webpack-cli
+
+	const resolve = require('./config/resolve.js')
+	console.log(resolve('dist'))
+	module.exports = {
+		mode:'development',
+		entry:{
+			app:'./src/main.js'
+		},
+		output:{
+			path:resolve('dist'),
+			filename:'[name].js'
+		}
+	}
+
+步骤二：配置html-webpack-plugin插件
+步骤三：配置babel
+	安装：babel-loader babel-core babel-preset-env
+步骤四：配置vue代码 ，如果不安装vue-loader vue-template-compiler ，会报两个插件未安装，按顺序报错
+	安装：vue-loader vue-template-compiler
+	坑：vue-loader要指定版本才可编译通过vue项目
+		vue-template-compiler 版本与vue的版本必须一致，不一致会导致vue版本提取不出来
+步骤五：提取css
+	<style lang="scss" scoped>
+		h2{
+			color:red;
+			a{
+				color:blue;
+			}
+		}
+	</style>
+	安装： style-loader css-loader  提取css插件extract-text-webpack-plugin
+		   使用sass插件： 需安装node-sass sass-loader
+
+    坑：extract-text-webpack-plugin 必须要安装4.0.0,但是这个版本没有正式发布
+    	刚开始一出来的时候,css不能压缩代码
+    ExtractTextPlugin插件用法： https://github.com/webpack-contrib/extract-text-webpack-plugin
+    css可做压缩等操作
+步骤六：添加source-map
+    scss可添加source-map
+    source-map文件出来满足条件：css scss配置sourceMap为true + devtool设置
+步骤七：配置webpack-dev-server
+	1. package.json 配置 "server": "webpack-dev-server --progress --color"
+	2. webpack.config.js配置
+		devServer:{
+			contentBase:path.join(__dirname,'./'),
+			// compress:true,
+			host:'0.0.0.0', //可通过localhost 或者本机ip来访问地址
+			port:9000 // 端口号
+		},
+		以上设置后，如果手机不能通过ip进行访问，可关闭电脑防火墙，即可访问
+	3. 配置热更新
+	   1. hot:true
+	   2. inline:true
+	   3. new webpack.HotModuleReplacementPlugin({}) 本步骤不设置，控制台会报错

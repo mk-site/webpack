@@ -1,0 +1,13 @@
+步骤1：编写一个config文件，在101和302文件里引入并执行
+
+步骤2：拆分异步组件公共代码
+	splitChunks: {
+		chunks: 'async',
+		minSize: 0, //默认最小尺寸是30kb，可自定义设置 坑:测试时文件小，导致老是分离不出来文件
+		minChunks: 1 // 至少一个模块引入
+	}
+备注： 
+	new webpack.NamedModulesPlugin(), // HMR shows correct file names in console on update.
+    new webpack.NoEmitOnErrorsPlugin(),
+
+   	webpack3异步打包提取公共模块，解决公共模块：https://segmentfault.com/a/1190000014221669?utm_source=index-hottest

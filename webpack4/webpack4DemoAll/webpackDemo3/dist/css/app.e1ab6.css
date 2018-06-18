@@ -1,0 +1,37 @@
+
+h3[data-v-fbfe2906] {
+  color: red;
+}
+h3 a[data-v-fbfe2906] {
+    color: blue;
+}
+/* :root{
+	--red:#d33;
+	--blue:blue;
+}
+
+h1{
+	color:var(--red);
+	display:flex;
+	transform:rotate(7deg);
+}
+
+a{
+	transform:rotate(20deg);
+} */
+h2 {
+  color: #ff2d55; }
+  h2 a {
+    color: blue; }
+
+/* 
+
+<style lang="css">
+	
+	h1{
+		color:red;
+	}
+	
+</style>*/
+
+/*# sourceMappingURL=app.e1ab6.css.map*/

@@ -1,0 +1,31 @@
+步骤1：写一个http.js文件，挂载到Vue.prototype上
+步骤2：学习cross-env模块
+	地址：https://www.npmjs.com/package/cross-env
+	安装： cross-env模块
+步骤3：页面使用这个http.js文件的请求地址
+步骤4：配置dev的4种环境
+	"dev:46":"cross-env NODE_ENV=46 node server.js",
+    "dev:test":"cross-env NODE_ENV=test node server.js",
+    "dev:pre":"cross-env NODE_ENV=pre node server.js",
+    "dev:prod":"cross-env NODE_ENV=prod node server.js"
+步骤5：配置prod的4种环境
+	"build:46":"cross-env NODE_ENV=46 webpack --color",
+    "build:test":"cross-env NODE_ENV=test webpack --color",
+    "build:pre":"cross-env NODE_ENV=pre webpack --color",
+    "build:prod":"cross-env NODE_ENV=prod webpack --color",
+步骤6：配置文件解析，外部文件拓展
+	resolve: {
+		extensions: [".js", ".vue", ".json"]
+	},
+	externals: {
+		jquery: 'jQuery'
+	},
+步骤7：配置图片
+	安装：url-loader  file-loader
+	坑：ExtractTextPlugin找不到设置背景图片路径
+	使用插件：mini-css-extract-plugin  可解决此问题
+步骤8：配置字体
+
+    
+	
+		

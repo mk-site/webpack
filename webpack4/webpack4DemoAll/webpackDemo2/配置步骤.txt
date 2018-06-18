@@ -1,0 +1,47 @@
+步骤一：配置热更新
+	配置方法一：配置server.js  跟在scripts标签配置一样
+		入口文件写法：
+			entry: {
+				app: './src/main.js'
+			}
+		server.js文件配置：
+			const webpackDevServer = require('webpack-dev-server');
+			const webpack = require('webpack');
+			const path = require('path')
+			const merge = require('webpack-merge')
+			const config = merge(require('./webpack.config.js'))
+			const options = {
+			  contentBase: './dist',
+			  hot: true,
+			  inline:true,
+			  progress:true,
+			  quiet:true,
+			  port:9000,
+			  host: 'localhost'
+			}
+			webpackDevServer.addDevServerEntrypoints(config, options);
+			const compiler = webpack(config);
+			const server = new webpackDevServer(compiler, options);
+			server.listen(options.port, () => {
+				console.log('dev server listening on port 5000');
+			});
+	配置方法二：webpack-dev-middleware  和 webpack-hot-middleware模块使用
+		入口文件写法：
+			entry:[
+				'webpack-hot-middleware/client',
+				'./src/main.js'
+			]
+		坑：更新main.js时，控制台不刷新
+步骤二：配置复制文件夹
+	安装插件：copy-webpack-plugin
+
+步骤三：配置复制的文件注入到html内
+	安装插件：html-webpack-include-assets-plugin  可使文件插入到页面中
+
+步骤四：清空文件夹
+	安装：clean-webpack-plugin
+		const CleanWebpackPlugin = require('clean-webpack-plugin')
+		plugins:[
+			new CleanWebpackPlugin('dist/**/*')
+		]
+		

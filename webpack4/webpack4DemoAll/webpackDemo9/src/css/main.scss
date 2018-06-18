@@ -1,0 +1,37 @@
+:root{
+	--red:#d33;
+	--blue:blue;
+}
+
+h1{
+	color:var(--red);
+	display:flex;
+	transform:rotate(7deg);
+	.abc{
+		padding:10px 20px;
+	}
+}
+
+a{
+	border-radius: 5px;
+	transform:rotate(20deg);
+	margin:10px 20px 10px 20px;
+}
+
+
+// @import "../css/main.scss";
+h2{
+	color:#ff2d55;
+	a{
+		color:blue;
+	}
+} 
+/* 
+
+<style lang="css">
+	
+	h1{
+		color:red;
+	}
+	
+</style>*/

@@ -1,0 +1,49 @@
+{
+    "outputDir": "dist/",
+		"publicPath": "",
+    "eslint": true,
+		"stylelint": true,
+		"isVueProject":true,
+		"lintDir": ["src"],
+		"externals": {
+			"jquery": "jQuery"
+		},
+    "devServer": {
+		"host": "0.0.0.0",
+		"useLocalIp": true,
+		"port": "9009",
+		"open": ""
+    },
+    "assets": {
+		"injectThemeAssets": [],
+		"injectHttpsAssets": ["https://h5.bestpay.com.cn/common/js/Encrypt.min.js", "vendor/jquery.min.js"],
+		"copyAssets": [
+			{ "from": "./node_modules/jquery/dist/jquery.min.js", "to": "vendor" },
+			{ "from": "src/static", "to": "static", "toType":"dir" }
+		]
+	},
+    "46": {
+		"isSourceMap": false,
+		"deleteLog":false,
+		"injectHttpsAssets":[],
+		"meta": []
+	},
+	"test": {
+		"isSourceMap": false,
+		"deleteLog":false,
+		"injectHttpsAssets":[],
+		"meta": [{"viewport": "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"}]
+	},
+	"pre": {
+		"isSourceMap": false,
+		"deleteLog":false,
+		"injectHttpsAssets":[],
+		"meta": [{"viewport": "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"}]
+	},
+	"prod": {
+		"isSourceMap": false,
+		"deleteLog":true,
+		"injectHttpsAssets":[],
+		"meta": [{"viewport": "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"}]
+	}
+}
